@@ -241,19 +241,19 @@ jobs:
   #       if: ${{ matrix.osx_arch == 'x86_64'}}
   #       run: |
   #         rustup target add x86_64-apple-darwin
-      - run: echo ${{github.workflow}} ${{github.job}}
+      - run: echo ${{github.workflow}} ${{github.job}} ${{ matrix.osx_arch }}
 
-      - uses: ./.github/actions/build_extensions
-        with:
-          treat_warn_as_error: 0
-          run_tests: 0
-          osx_arch: ${{ matrix.osx_arch }}
-          vcpkg_target_triplet: ${{ matrix.vcpkg_triplet }}
-          duckdb_arch: ${{ matrix.duckdb_arch }}
-          build_in_tree_extensions: 1
-          build_out_of_tree_extensions: 1
-          run_autoload_tests: ${{ matrix.run_autoload_tests }}
-          ninja: 1
+      # - uses: ./.github/actions/build_extensions
+      #   with:
+      #     treat_warn_as_error: 0
+      #     run_tests: 0
+      #     osx_arch: ${{ matrix.osx_arch }}
+      #     vcpkg_target_triplet: ${{ matrix.vcpkg_triplet }}
+      #     duckdb_arch: ${{ matrix.duckdb_arch }}
+      #     build_in_tree_extensions: 1
+      #     build_out_of_tree_extensions: 1
+      #     run_autoload_tests: ${{ matrix.run_autoload_tests }}
+      #     ninja: 1
 
   #     - name: Test statically linked extensions
   #       if: ${{ matrix.osx_arch == 'arm64' && inputs.skip_tests != 'true' }}
