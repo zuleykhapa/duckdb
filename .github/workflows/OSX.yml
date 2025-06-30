@@ -241,7 +241,7 @@ jobs:
   #       if: ${{ matrix.osx_arch == 'x86_64'}}
   #       run: |
   #         rustup target add x86_64-apple-darwin
-      - run: echo "${{github.workflow}} ${{github.job}} job_id - ${{github.jobs.id}} ${{ matrix.osx_arch }}"
+      - run: echo "${{github.workflow}} ${{github.job}} job_name - ${{github.job.name}} ${{ matrix.osx_arch }}"
 
       # - uses: ./.github/actions/build_extensions
       #   with:
